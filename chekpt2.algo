@@ -1,0 +1,47 @@
+FUNCTION  dot_product(v1:ARRAY_OF_INTEGER[2],v2:ARRAY_OF_INTEGER[2]) : ARRAY_OF_INTEGER [2]
+VAR
+    ps:INTEGER;
+BEGIN
+    ps:= (v1[0]*v2[1]+v1[1]*v2[0]);
+    
+    RETURN pv ;
+END
+
+
+
+ALGORITHM ORT
+VAR
+    n,x,i,j:INTEGER;
+    tab:ARRAY_OF_ARRAY[];
+BEGIN
+    FOR i from 0 to n-1 STEP 1 DO
+    FOR j from i to n-2 STEP  1 DO
+    x:=dot_product(tab[j],tab[j+1]);
+    IF (x=0) THEN
+        write ("the two vectors ",tab[j],"and " ,tab[j+1],"]are orthogonal")
+    END_IF
+    END_FOR
+END
+
+
+ALGORITHM TRIINS
+VAR
+    t:ARRAY_OF_INTEGER[]
+    i,j,k:INTEGER,
+BEGIN
+    j:=2;
+    WHILE (j<=t.length) DO
+    i:=j-1;
+    k:=t[j];
+    WHILE (i>0 and t[i]>k) DO
+    t[i+1]:=t[i];
+    i:=i-1;
+    
+    END_WHILE
+    t[i+1]:=k
+    j:=j+1;
+    END_WHILE
+
+END
+
+
